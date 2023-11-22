@@ -1,0 +1,29 @@
+﻿@page
+@model WebApp__Saif.Pages.Categories.AddCategoryModel
+@{
+}
+<h1>Add Category Page</h1>
+ 
+@if (!string.IsNullOrEmpty(Model.CustomMessage))
+{
+    <div class="container alert alert-danger">@Model.CustomMessage</div>
+}
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label" asp-for="@Model.category.Name" >Category Name</label>
+        <input type="text" asp-for="@Model.category.Name"  class="form-control" placeholder="Category">
+        <span class="alert-danger " asp-validation-for="@Model.category.Name"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="@Model.category.DisplayOrder">Password</label>
+        <input type="number" class="form-control" asp-for="@Model.category.DisplayOrder" placeholder="DisplayOrder">
+        <span class="alert-danger " asp-validation-for="@Model.category.DisplayOrder"></span>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

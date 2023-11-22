@@ -1,0 +1,31 @@
+﻿@page
+@model WebApp__Saif.Pages.Categories.IndexModel
+@{
+}
+<h1>Category Page</h1>
+<a asp-page="AddCategory" class="btn btn-success">AddCategory</a>
+
+<table cellpadding="20" border="1">
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Name</td>
+			<td>DisplayOrder</td>
+			
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var obj in Model.CategoriesTable)
+		{	<tr class="border border-5 ">
+				<td style="border border-5">@obj.Id</td>
+				<td>@obj.Name </td>
+				<td>@obj.DisplayOrder</td>
+				<td><a asp-route-EditId="@obj.Id" asp-page="Edit">Edit</a></td>
+				<td><a asp-route-DeleteId="@obj.Id">Delete</a></td>
+			</tr>
+		}
+		<tr>
+
+		</tr>
+	</tbody>
+</table>
